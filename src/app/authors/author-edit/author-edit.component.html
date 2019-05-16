@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Edit author</h2>
+  <form (submit)="onSubmit($event, form)" #authorForm='ngForm'>
+    <div class="form-group row">
+      <label for="fname" class="col-sm-2 col-form-label">First name:</label>
+      <div class="col-sm-10">
+        <input type="text" name='firstName' class="form-control" id="fname" value='{{author?.firstName}}' [(ngModel)]="author.firstName" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="lname" class="col-sm-2 col-form-label">Last name:</label>
+      <div class="col-sm-10">
+        <input type="text" name='lastName' class="form-control" id="lname" value='{{author?.lastName}}' [(ngModel)]="author.lastName">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success float-left shadow rounded" style="margin-right:10px;">Update author</button>
+    <button type="button" class="btn btn-outline-success" [routerLink]="['/']">Go back</button>
+  </form>
+</div>

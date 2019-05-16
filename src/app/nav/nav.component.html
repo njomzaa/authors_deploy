@@ -1,0 +1,16 @@
+<nav>
+    <ul>
+      <li *ngIf="!isAuthed">
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a routerLink="/authors">Authors</a>
+      </li>
+      <li>
+        <a routerLink="authors/new">Create Author</a>
+      </li>
+      <li *ngIf="isAuthed">
+        <a><button (click)="onLogout()">Logout</button></a>
+      </li>
+    </ul>
+  </nav>

@@ -1,0 +1,28 @@
+<!-- <app-author-new (createAuthor)='onCreate($event)'></app-author-new> -->
+<app-nav></app-nav>
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">Authors list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let author of authors' (click)='onSelect(author)' [routerLink]="['authors', author._id]">
+        <td>{{ author.firstName }}</td>
+        <td>{{ author.lastName }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-success" (click)='onDelete($event, author)' [ngStyle]="{'margin-right':'4px'}">Delete</button> 
+          <button type="button" class="btn btn-outline-success" [routerLink]="['authors/edit', author._id]" (editAuthor)='onEdit($event)'>Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-outline-success" [routerLink]="['authors/new']" (createAuthor)='onCreate($event)'>Add author</button>
+
+</div>
+
+<hr>
